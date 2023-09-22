@@ -174,7 +174,7 @@ namespace Калькулятор_множеств__1_
                             Console.WriteLine("Ошибка! Введи ещё раз.");
                         }
                     }
-                    while (multiple != 0);
+                    while (multiple == 0);
                     int b, e;
                     do
                     {
@@ -423,6 +423,10 @@ namespace Калькулятор_множеств__1_
                 }
             }
             i++;
+            if (formula[i] == '0')
+            {
+                set = first_set;
+            }
             while (i < formula.Length-1) // чтение формулы
             {
                 if (formula[i] != '0')
