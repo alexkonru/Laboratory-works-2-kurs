@@ -1,0 +1,12 @@
+C:\Рабочий стол\Учёба\2_kurs\oop\ClassHierarchy\bin\Debug\ClassHierarchy.dll
+C:\Рабочий стол\Учёба\2_kurs\oop\ClassHierarchy\bin\Debug\ClassHierarchy.pdb
+C:\Рабочий стол\Учёба\2_kurs\oop\ClassHierarchy\obj\Debug\ClassHierarchy.csproj.AssemblyReference.cache
+C:\Рабочий стол\Учёба\2_kurs\oop\ClassHierarchy\obj\Debug\ClassHierarchy.csproj.CoreCompileInputs.cache
+C:\Рабочий стол\Учёба\2_kurs\oop\ClassHierarchy\obj\Debug\ClassHierarchy.dll
+C:\Рабочий стол\Учёба\2_kurs\oop\ClassHierarchy\obj\Debug\ClassHierarchy.pdb
+C:\Users\Gleb\Desktop\Github\TmpProjects\С#\ClassHierarchy\bin\Debug\ClassHierarchy.dll
+C:\Users\Gleb\Desktop\Github\TmpProjects\С#\ClassHierarchy\bin\Debug\ClassHierarchy.pdb
+C:\Users\Gleb\Desktop\Github\TmpProjects\С#\ClassHierarchy\obj\Debug\ClassHierarchy.csproj.AssemblyReference.cache
+C:\Users\Gleb\Desktop\Github\TmpProjects\С#\ClassHierarchy\obj\Debug\ClassHierarchy.csproj.CoreCompileInputs.cache
+C:\Users\Gleb\Desktop\Github\TmpProjects\С#\ClassHierarchy\obj\Debug\ClassHierarchy.dll
+C:\Users\Gleb\Desktop\Github\TmpProjects\С#\ClassHierarchy\obj\Debug\ClassHierarchy.pdb
