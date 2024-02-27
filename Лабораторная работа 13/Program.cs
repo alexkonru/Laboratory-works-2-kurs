@@ -1,4 +1,5 @@
 ﻿using System;
+using ClassHierarchy;
 
 namespace Лабораторная_работа_13
 {
@@ -7,8 +8,8 @@ namespace Лабораторная_работа_13
         static void Main()
         {
             // Создание двух коллекций
-            MyNewCollection<int> collection1 = new MyNewCollection<int>();
-            MyNewCollection<string> collection2 = new MyNewCollection<string>();
+            MyNewCollection collection1 = new MyNewCollection();
+            MyNewCollection collection2 = new MyNewCollection();
 
             // Создание двух объектов Journal
             Journal journal1 = Journal.Instance;
@@ -22,10 +23,10 @@ namespace Лабораторная_работа_13
             collection2.CollectionReferenceChanged += journal2.HandleCollectionReferenceChanged;
 
             // Добавление элементов в коллекции
-            collection1.Add(1);
-            collection1.Add(2);
-            collection2.Add("A");
-            collection2.Add("B");
+            collection1.Add(new Person());
+            collection1.Add(new Person());
+            collection2.Add(new Student("Александр", 19, "pstu"));
+            collection2.Add(new Student());
 
             // Удаление элементов из коллекций
             collection1.Remove(0);

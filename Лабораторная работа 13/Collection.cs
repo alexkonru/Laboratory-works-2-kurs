@@ -34,7 +34,7 @@ namespace Лабораторная_работа_13
         public string ChangeType { get; private set; }
         public object ChangedItem { get; private set; }
 
-        public CollectionHandlerEventArgs(string collectionName, string changeType, object changedItem)
+        public CollectionHandlerEventArgs(string collectionName, string changeType, Person changedItem)
         {
             CollectionName = collectionName;
             ChangeType = changeType;
@@ -47,7 +47,7 @@ namespace Лабораторная_работа_13
         }
     }
 
-    public class MyNewCollection<T> : BinaryTree<T> where T : IComparable<T>
+    public class MyNewCollection : BinaryTree<Person>
     {
         public event CollectionHandler CollectionCountChanged;
         public event CollectionHandler CollectionReferenceChanged;
@@ -59,17 +59,7 @@ namespace Лабораторная_работа_13
             CollectionName = "DefaultCollection";
         }
 
-        public MyNewCollection(int c) : base(c)
-        {
-            CollectionName = "DefaultCollection";
-        }
-
-        public MyNewCollection(BinaryTree<T> c, int v) : base(c, v)
-        {
-            CollectionName = "DefaultCollection";
-        }
-
-        public new void Add(T item)
+        public new void Add(Person item)
         {
             base.Add(item);
 
@@ -82,7 +72,7 @@ namespace Лабораторная_работа_13
             if (index < 0 || index >= Count)
                 return false;
 
-            T removedItem = this[index];
+            Person removedItem = this[index];
 
             base.Remove(removedItem);
 
@@ -93,48 +83,31 @@ namespace Лабораторная_работа_13
         }
 
         // Переопределение индексатора для вызова события CollectionReferenceChanged
-        public new T this[int index]
+        public new Person this[int index]
         {
             get => base[index];
         }
 
-        protected virtual void OnCollectionCountChanged(string action, object changedItem)
+        protected virtual void OnCollectionCountChanged(string action, Person changedItem)
         {
             if (CollectionCountChanged != null)
             {
                 CollectionCountChanged.Invoke(this, new CollectionHandlerEventArgs(CollectionName, action, changedItem));
 
                 // Добавляем изменение в журнал
-                Journal.Instance.Add(new JournalEntry(CollectionName, action, changedItem.ToString()));
+                Journal.Instance.Add(new JournalEntry(CollectionName, action, changedItem.GetType().FullName));
             }
         }
 
 
-        protected virtual void OnCollectionReferenceChanged(string action, object changedItem)
+        protected virtual void OnCollectionReferenceChanged(string action, Person changedItem)
         {
             if (CollectionCountChanged != null)
             {
                 CollectionCountChanged.Invoke(this, new CollectionHandlerEventArgs(CollectionName, action, changedItem));
 
                 // Добавляем изменение в журнал
-                Journal.Instance.Add(new JournalEntry(CollectionName, action, changedItem.ToString()));
-            }
-        }
-
-        public void AddDefaults()
-        {
-            // Добавление элементов по умолчанию
-            Add(default(T));
-            Add(default(T));
-        }
-
-        // Добавление элементов из массива
-        public void Add(object[] items)
-        {
-            foreach (object item in items)
-            {
-                // Добавление элемента из массива
-                Add((T)item);
+                Journal.Instance.Add(new JournalEntry(CollectionName, action, changedItem.GetType().FullName));
             }
         }
     }
